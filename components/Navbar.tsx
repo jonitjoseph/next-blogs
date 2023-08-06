@@ -16,7 +16,7 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className='sm:flex hidden'>
                 <div className='flex gap-3 md:gap-5'>
-                    <Link href='/create'>Create</Link>
+                    <Link href='/new'>Write</Link>
                     <button type='button'>Sign Out</button>
                     <Link href='/profile'>Profile</Link>
                 </div>
@@ -29,7 +29,7 @@ export default function Navbar() {
                     <button onClick={() => setToggleDropdown(!toggleDropdown)}>Dropdown</button>
                     {toggleDropdown && (
                         <div className='flex flex-col justify-end mt-3 absolute top-full right-0 w-full p-5 gap-2 min-w-[210px] bg-gray-100 rounded-lg'>
-                            <Link href='/create' onClick={() => setToggleDropdown(false)}>Create</Link>
+                            <Link href='/new' onClick={() => setToggleDropdown(false)}>Write</Link>
                             <Link href='/profile' onClick={() => setToggleDropdown(false)}>Profile</Link>
                             <button type='button'
                                 onClick={() => { setToggleDropdown(false); }}>Sign Out
