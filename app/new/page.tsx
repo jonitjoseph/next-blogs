@@ -2,8 +2,12 @@
 
 import Form from "@/components/Form";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function NewStory() {
+    const router = useRouter();
+    const { data: session } = useSession({ required: true });
     const [publish, setPublish] = useState(false);
     const [blog, setBlog] = useState({ title: '', tag: '', content: '' });
 
@@ -17,8 +21,12 @@ export default function NewStory() {
                     title: blog.title,
                     tag: blog.tag,
                     content: blog.content,
+                    userId: session?.user,
                 }),
             });
+            if (response.ok) {
+                router.push('/');
+            }
         } catch (error) {
             console.log(error);
         } finally {
