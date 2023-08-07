@@ -1,3 +1,4 @@
+import AuthCheck from "@/components/AuthCheck";
 import Feed from "@/components/Feed";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <h3 className="mt-5 text-lg sm:text-xl text-gray-600 max-w-2xl">Discover blogs and stories from writers on any topic.</h3>
         <Feed />
       </section>
+      <AuthCheck children={'auth checks passed'}/>
     </>
   )
 }
