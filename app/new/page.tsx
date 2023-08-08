@@ -26,6 +26,9 @@ export default function NewStory() {
             });
             if (response.ok) {
                 router.push('/');
+            } else {
+                console.log(response);
+                window.alert("Server Error! Unable to publish!")
             }
         } catch (error) {
             console.log(error);
