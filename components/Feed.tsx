@@ -66,14 +66,14 @@ export default function Feed() {
 
     return (
         <>
-            <form className="w-full my-8 mx-auto max-w-2xl min-w-[400px] flex justify-center items-center" onSubmit={handleSearchSubmit}>
+            <form className="w-full my-8 mx-auto max-w-2xl min-w-[400px] flex justify-center items-center content-center" onSubmit={handleSearchSubmit}>
                 <input
                     type="text"
                     placeholder='Search'
                     required
                     value={searchText}
                     onChange={handleSearchChange}
-                    className="m-4 p-4 block w-full rounded-lg border text-center outline-none focus:bg-gray-50 focus:border-gray-300" />
+                    className="m-4 p-4 h-12 block w-full rounded-lg border text-center outline-none focus:bg-gray-50 focus:border-gray-300" />
                 <button
                     className="h-12 m-4 max-w-sm min-w-[20%] inline-flex items-center justify-center rounded-lg bg-white hover:bg-gray-300"
                     type="submit">

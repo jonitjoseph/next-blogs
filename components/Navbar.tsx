@@ -42,7 +42,9 @@ export default function Navbar() {
             <div className='sm:hidden flex relative'>
                 {session?.user ? (
                     <div className='flex'>
-                        <button onClick={() => setToggleDropdown(!toggleDropdown)}>Dropdown</button>
+                        <button onClick={() => setToggleDropdown(!toggleDropdown)}>
+                            <Image src="/assets/icons/menu.svg" alt="Menu" width={30} height={30} className="object-contain"></Image>
+                        </button>
                         {toggleDropdown && (
                             <div className='flex flex-col justify-end mt-3 absolute top-full right-0 w-full p-5 gap-2 min-w-[210px] bg-gray-100 rounded-lg'>
                                 <Link href='/new' onClick={() => setToggleDropdown(false)}>Write</Link>

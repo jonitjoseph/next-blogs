@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
-export default function NewStory() {
+export default function New() {
+    
     const router = useRouter();
     const { data: session } = useSession({ required: true });
     const [publish, setPublish] = useState(false);

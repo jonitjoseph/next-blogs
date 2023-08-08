@@ -2,12 +2,12 @@ import Blog from "@/models/blog";
 import { connectToDB } from "@/utils/database";
 import { getServerSession } from "next-auth";
 
-export const POST = async (req: any) => {
+export const POST = async (request: any) => {
     const session = await getServerSession();
     if (!session) {
         return new Response("Unauthorized!", { status: 401 })
     }
-    const { userId, title, tag, content } = await req.json();
+    const { userId, title, tag, content } = await request.json();
     try {
         await connectToDB();
         const newBlog = new Blog({
