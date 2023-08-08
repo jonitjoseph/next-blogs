@@ -1,3 +1,3 @@
-export async function GET(request: any) {
-    return new Response('Hello, Next.js!');
+export async function GET(req: any) {
+    return new Response(JSON.stringify({ message: 'Hello, Next.js!' }), { status: 200 });
 }

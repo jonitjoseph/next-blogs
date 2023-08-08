@@ -14,7 +14,7 @@ export default function Form({ type, blog, setBlog, publish, handleSubmit }: for
                 <form className="mt-10 w-full max-w-4xl flex flex-col gap-1 bg-gray-100 rounded-lg" onSubmit={handleSubmit}>
                     <div className="flex justify-center">
                         <button
-                            className="h-10 m-4 max-w-lg min-w-[40%] inline-flex items-center justify-center rounded-md bg-white hover:bg-gray-300"
+                            className="h-10 m-4 max-w-lg min-w-[40%] inline-flex items-center justify-center rounded-lg bg-white hover:bg-gray-300"
                             type="submit"
                             disabled={publish}
                         >Publish</button>

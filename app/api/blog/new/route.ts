@@ -19,6 +19,6 @@ export const POST = async (req: any) => {
         await newBlog.save();
         return new Response(JSON.stringify(newBlog), { status: 201 })
     } catch (error) {
-        return new Response("Failed to create blog!", { status: 500 })
+        return new Response(JSON.stringify({ message: "Failed to create blog!" }), { status: 500 })
     }
 }
