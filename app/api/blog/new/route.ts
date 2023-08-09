@@ -7,13 +7,14 @@ export const POST = async (request: any) => {
     if (!session) {
         return new Response("Unauthorized!", { status: 401 })
     }
-    const { userId, title, tag, content } = await request.json();
+    const { userId, title, tag, imageUrl, content } = await request.json();
     try {
         await connectToDB();
         const newBlog = new Blog({
             creator: userId.id,
             title,
             tag,
+            imageUrl,
             content
         });
         await newBlog.save();

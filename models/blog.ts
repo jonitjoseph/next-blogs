@@ -13,9 +13,16 @@ const BlogSchema = new Schema({
         type: String,
         required: [true, 'Tag is required.'],
     },
+    imageUrl: {
+        type: String
+    },
     content: {
         type: String,
         required: [true, 'Content is required.'],
+    },
+    date: {
+        type: Date,
+        default: Date.now,
     }
 });
 

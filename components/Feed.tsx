@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const PostList = ({ data, handleTagClick }: any) => {
     return (
-        <div className='flex flex-col justify-center items-center gap-4'>
+        <div className='flex flex-col-reverse justify-center items-center gap-4'>
             {data.length > 0 ? (
                 data.map((post: any) => (
                     <Post

@@ -28,6 +28,14 @@ export default function Form({ type, blog, setBlog, publish, handleSubmit }: for
                         value={blog.tag}
                         onChange={(e) => setBlog({ ...blog, tag: e.target.value })}
                         className="m-2 mx-8 p-4 h-full rounded-lg border shadow-sm focus-visible:outline-none" />
+                    <label className="mx-8 text-sm">Image URL</label>
+                    <input
+                        type="text"
+                        placeholder="Image URL"
+                        required
+                        value={blog.imageUrl}
+                        onChange={(e) => setBlog({ ...blog, imageUrl: e.target.value })}
+                        className="m-2 mx-8 p-4 h-full rounded-lg border shadow-sm focus-visible:outline-none" />
                     <label className="mx-8 text-sm">Content</label>
                     <textarea
                         placeholder='Tell your story...'

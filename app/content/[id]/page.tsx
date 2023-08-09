@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 async function fetchContent(id: any) {
-    const response = await fetch(`http://localhost:3000/api/blog/${id}`);
+    const response = await fetch(`http://localhost:3000/api/blog/${id}`, { next: { revalidate: 10 } });
     const data = await response.json();
     return data;
 }

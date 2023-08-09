@@ -10,7 +10,7 @@ export default function New() {
     const router = useRouter();
     const { data: session } = useSession({ required: true });
     const [publish, setPublish] = useState(false);
-    const [blog, setBlog] = useState({ title: '', tag: '', content: '' });
+    const [blog, setBlog] = useState({ title: '', tag: '', imageUrl:'', content: '' });
 
     const writeContent = async (e: any) => {
         e.preventDefault();
@@ -21,6 +21,7 @@ export default function New() {
                 body: JSON.stringify({
                     title: blog.title,
                     tag: blog.tag,
+                    imageUrl: blog.imageUrl,
                     content: blog.content,
                     userId: session?.user,
                 }),
