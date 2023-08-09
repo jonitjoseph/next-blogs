@@ -30,7 +30,7 @@ export default function Feed() {
     const [searchedResults, setSearchedResults] = useState([]);
 
     const fetchPosts = async () => {
-        const response = await fetch("/api/blog", { next: { revalidate: 1 } });
+        const response = await fetch("/api/blog", { cache: 'no-store' });
         const data = await response.json();
         setAllPosts(data);
     };
