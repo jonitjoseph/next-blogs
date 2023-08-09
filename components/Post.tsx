@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type CustomUser = {
+    image: string;
     id: string;
 };
 
@@ -14,13 +15,18 @@ declare module 'next-auth' {
     }
 }
 
-export default function Post({ post }: any) {
+export default function Post({ post, handleEdit, handleDelete, handleTagClick }: any) {
     const { data: session } = useSession();
     const router = useRouter();
+    const pathName = usePathname();
 
     const handleProfileClick = () => {
         if (post.creator._id === session?.user?.id) return router.push("/profile");
         router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+    };
+
+    const handleBlogClick = () => {
+        router.push(`/content/${post._id}`);
     };
 
     return (
@@ -32,10 +38,21 @@ export default function Post({ post }: any) {
                         {post.creator.username}
                         <div className="text-sm text-slate-500 dark:text-slate-400">Date</div>
                     </div>
-                    <div className="text-2xl font-semibold leading-none tracking-tight">{post.title}</div>
+                    <div className="mx-1 text-4xl leading-none tracking-tight cursor-pointer" onClick={handleBlogClick}>{post.title}</div>
                 </div>
-                <div className="p-6 pt-0">{post.content}</div>
-                <div className="flex items-center p-6 pt-0">{post.tag}</div>
+                <div className="mx-1 p-6 pt-0 truncate">{post.content}</div>
+                <div className="flex items-center p-6 pt-0"
+                    onClick={() => handleTagClick && handleTagClick(post.tag)}>
+                    <p className="p-1 rounded-lg border-transparent bg-slate-100 cursor-pointer min-w-[48px] text-center">
+                        #{post.tag}
+                    </p>
+                </div>
+                {session?.user.id === post.creator._id && pathName === "/profile" && (
+                    <div className='px-4 py-2 flex justify-end items-center gap-4 border-t border-gray-100'>
+                        <button className='p-2 rounded-md min-w-[64px] text-sm cursor-pointer hover:bg-gray-200' onClick={handleDelete}>Delete</button>
+                        <button className='p-2 rounded-md min-w-[64px] border-2 text-sm cursor-pointer hover:bg-gray-800 hover:text-gray-100' onClick={handleEdit}>Edit</button>
+                    </div>
+                )}
             </div>
         </>
     )

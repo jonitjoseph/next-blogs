@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const PostList = ({ data, handleTagClick }: any) => {
     return (
         <div className='flex flex-col justify-center items-center gap-4'>
-            {
+            {data.length > 0 ? (
                 data.map((post: any) => (
                     <Post
                         key={post._id}
@@ -15,6 +15,9 @@ const PostList = ({ data, handleTagClick }: any) => {
                         handleTagClick={handleTagClick}
                     />
                 ))
+            ) : (
+                <>Populating your feed...</>
+            )
             }
         </div>
     );
